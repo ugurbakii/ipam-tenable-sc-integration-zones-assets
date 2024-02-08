@@ -10,7 +10,7 @@ os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(
     '/etc/ssl/certs/',
     '/usr/local/share/ca-certificates')
 def userToken():
-
+	
 	url = "https://ipam.domain.com/api/?app_id=app&controller=user"
 
 	payload  = {}
@@ -26,17 +26,7 @@ def userToken():
 	my_data=response_data['data']['token']
 	return str(my_data)
 	
-
-	
-	
-#MAIN
-
-
-
-
 def vlans(token,deger):
-	import requests
-
 	url = "https://ipam.domain.com/api/app/vlan/all"
 	x=0
 	allData=""
@@ -70,8 +60,6 @@ def vlans(token,deger):
 	
 
 def subnets(token,gotdata):
-	import requests
-
 	url = "https://ipam.domain.com/api/app/vlan/"+str(gotdata)+"/subnets"
 	x=0
 	allData=""
@@ -99,7 +87,6 @@ def subnets(token,gotdata):
 	    #print("response code:",str(gotdata),response.status_code,response.text)
 	return allData
 	
-
 def zoneList(deger):
     url = "https://nessus/rest/zone"
     allData=""
@@ -173,8 +160,6 @@ def zoneListAllName():
                     #print(det)
     return tex2
 
-
-
 def vlansList(token):
 	import requests
 
@@ -224,7 +209,6 @@ def ortakList(vlanArray,token):
             #vlans(userToken(),zonesListesi[item])
     print(allData)
         
-
 
 ortakList(vlansList(userToken()),userToken())
 #zoneListAllName()
